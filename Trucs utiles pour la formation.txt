@@ -1,0 +1,26 @@
+MAJ pip : python.exe -m pip install --upgrade pip
+
+Desinstaller tous les packages :
+	-> pip freeze > to_remove.txt
+	-> pip uninstall -y -r to_remove.txt
+	
+Installer les bons packages 
+	-> pip install -r requirements.txt
+	
+Installer Pycharm
+System interpreter et pas un venv
+Premier Plugin RF car plus à jour que l'autre
+
+MAJ de Chrome
+webdriver chrome 
+	-> https://googlechromelabs.github.io/chrome-for-testing/
+PATH : %USERPROFILE%\OneDrive - ONEPOINT\WebDrivers
+Redémarrer si nécessaire 
+Attention si les gens ont déjà des webdriver qui ne sont plus à jour 
+supprimer ou remplacer le driver ici : C:\Users\s.ramos-izquierdo\AppData\Local\rasjani\WebDriverManager\bin
+
+
+
+Saucelabs 
+	- https://SebRamos:d3848f08-69ef-44ab-8b31-d3f0e67f592e@ondemand.eu-central-1.saucelabs.com:443/wd/hub	
+	robot -v REMOTE_URL:https://SebRamos:d3848f08-69ef-44ab-8b31-d3f0e67f592e@ondemand.eu-central-1.saucelabs.com:443/wd/hub -d Resultats/SauceLabs/Win11Chrome119 -v DESIRED_CAPABILITIES:"name:Windows 11 + Chrome latest, platform:Windows 11,browserName:chrome,version:latest" -i "exercice 7 sauce" Tests
