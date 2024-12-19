@@ -1,49 +1,28 @@
 https://www.google.com/chrome/?platform=linux
 https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable
-
-https://googlechromelabs.github.io/chrome-for-testing/
-
 https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 
 https://hub.docker.com/_/ubuntu
 https://hub.docker.com/_/python
-
-
+https://hub.docker.com/r/selenium/standalone-chrome
 https://github.com/ppodgorsek/docker-robot-framework
-
-
-
-https://hub.docker.com/r/selenium/standalone-chrome
-
-
-
-
-Créer le Dockerfile
-docker build -t onepoint_formation_rf_webui_selenium_image . 
-
-docker run -it --name="robotframework" -v "C:\Users\s.ramos-izquierdo\OneDrive - ONEPOINT\Bureau\Seb\MES FORMATIONS\onepoint_formation_rf_webui_selenium\Formation Robot Framework - Selenium":"/opt/onepoint_formation_rf_webui_selenium" onepoint_formation_rf_webui_selenium_image:latest -c "robot -d '/opt/onepoint_formation_rf_webui_selenium/Resultats/Exercice1A' -v headless:false '/opt/onepoint_formation_rf_webui_selenium/Tests/Exercice 1/exercice1A.robot'"
-docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-chrome:latest
-
-docker run -it --rm onepoint_formation_rf_webui_selenium_image bash -c "curl -v http://0.0.0.0:4444"
-
-
-https://hub.docker.com/r/selenium/standalone-chrome
-
 
 https://medium.com/@zvisno/running-selenium-tests-with-docker-a484186cd3d
 
 
-docker run -it -v "C:\Users\s.ramos-izquierdo\OneDrive - ONEPOINT\Bureau\Seb\MES FORMATIONS\onepoint_formation_rf_webui_selenium\Formation Robot Framework - Selenium":"/opt/onepoint_formation_rf_webui_selenium" --entrypoint=/bin/bash onepoint_formation_rf_webui_selenium_image 
-
-
-
-
-
 -------
-https://hub.docker.com/r/selenium/standalone-chrome
 
 docker pull standalone-chrome:latest
+docker build -t onepoint_formation_rf_webui_selenium_image .
 docker network create selenium-net
-docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name="chrome" --network=selenium-net selenium/standalone-chrome:latest
-docker run -it --name="robotframework" --network=selenium-net -v "C:\Users\s.ramos-izquierdo\OneDrive - ONEPOINT\Bureau\Seb\MES FORMATIONS\onepoint_formation_rf_webui_selenium\Formation Robot Framework - Selenium":"/opt/onepoint_formation_rf_webui_selenium" onepoint_formation_rf_webui_selenium_image:latest -c "robot -d '/opt/onepoint_formation_rf_webui_selenium/Resultats/Exercice1A' '/opt/onepoint_formation_rf_webui_selenium/Tests/Exercice 1/exercice1A.robot'"
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" --name="chrome" --network="selenium-net" selenium/standalone-chrome:latest
+docker run -it --rm --name="robotframework" --network="selenium-net" -v "C:\Users\s.ramos-izquierdo\OneDrive - ONEPOINT\Bureau\Seb\MES FORMATIONS\onepoint_formation_rf_webui_selenium\Formation Robot Framework - Selenium":"/opt/onepoint_formation_rf_webui_selenium" onepoint_formation_rf_webui_selenium_image:latest -c "cd /opt/onepoint_formation_rf_webui_selenium && robot -d '/opt/onepoint_formation_rf_webui_selenium/Resultats/Exercice1A' '/opt/onepoint_formation_rf_webui_selenium/Tests/Exercice 1/exercice1A.robot'"
+
+
+
+
+
+
+
+
