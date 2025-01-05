@@ -14,7 +14,7 @@ Login Page Accueil
     # Des versions récentes de Chrome peuvent afficher une notification "Chrome is being controlled by automated test software" en haut de l'écran
     # Pour désactiver cette notification, on utilise une ChromeOption appelée excludeSwitches en excluant les notifications
     Open Browser              ${URL}    ${BROWSER}
-    ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
+    #...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
     ...                       remote_url=http://chrome:4444
     Maximize Browser Window
     Title Should Be           OrangeHRM
@@ -23,5 +23,6 @@ Login Page Accueil
     Click Element             ${LoginButton}
     Element Text Should Be    ${TitleDashboard}                   Dashboard
     Sleep                     2s
+
     Close Browser
 
