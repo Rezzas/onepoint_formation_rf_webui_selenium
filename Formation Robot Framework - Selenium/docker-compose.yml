@@ -1,0 +1,25 @@
+name: formation_robotframework
+
+networks:
+  selenium-net:
+    name: selenium-net
+    driver: bridge
+    
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: chrome
+    shm_size: 2gb
+    ports:
+      - 4444:4444
+      - 7900:7900
+    networks: 
+      - selenium-net
+
+  robotframework:
+    container_name: robotframework
+    build:
+      dockerfile: robotframework.Dockerfile
+    tty: true
+    networks: 
+      - selenium-net
