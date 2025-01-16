@@ -26,7 +26,10 @@ Verifier Modification Utilisateur
 
 *** Keywords ***
 un utilisateur se connectant sur la page d'accueil
-    Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option("excludeSwitches", ["enable-logging"])
+    Open Browser    ${URL}    ${BROWSER}    
+    ...    options=add_experimental_option("excludeSwitches", ["enable-logging"])
+    ...    remote_url=http://chrome:4444
+    
     Maximize Browser Window
     Title Should Be    OrangeHRM
     Input Text    ${UsernameInputBox}    Admin

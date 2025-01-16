@@ -13,7 +13,10 @@ un utilisateur se connectant sur la page d'accueil
     [Arguments]     ${URL}    ${BROWSER}
     Run Keyword If  '${BROWSER}' =='rChrome'  common.remoteChrome    ${URL}
     ...     ELSE IF    '${BROWSER}' =='rFirefox'  common.remoteFirefox    ${URL}
-    ...     ELSE    Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option("excludeSwitches", ["enable-logging"])
+    ...     ELSE    Open Browser    ${URL}    ${BROWSER}    
+    ...    options=add_experimental_option("excludeSwitches", ["enable-logging"])
+    ...    remote_url=http://chrome:4444
+    
     Title Should Be    OrangeHRM
     Input Text    ${UsernameInputBox}    Admin
     Input Text    ${PasswordInputBox}    admin123

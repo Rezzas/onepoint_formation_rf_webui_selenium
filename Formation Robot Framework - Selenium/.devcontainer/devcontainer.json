@@ -1,31 +1,25 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "robotframework",
-	"build": {
-		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-		"dockerfile": "../Dockerfile"
-	},
-	"runArgs": [
-    "--network=selenium-net",
-	"--name=robotframework"
+	"name": "Test Docker Compose",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "robotframework",
+	"workspaceFolder": "/opt/onepoint_formation_rf_webui_selenium",
+	"mounts": [
+		{
+			"source": "${localWorkspaceFolder}",
+			"target": "/opt/onepoint_formation_rf_webui_selenium",
+			"type": "bind"
+		}
 	],
+	"shutdownAction": "stopCompose",
 	"customizations": {
-    "vscode": {
-      "extensions": [
-        "d-biehl.robotcode"
-      ]
-    }
-  }
-
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "cat /etc/os-release",
-
-
+		"vscode": {
+			"extensions": [
+				"d-biehl.robotcode"
+			]
+		},
+		"settings": {
+			"python.defaultInterpreterPath": "/usr/local/bin/python",
+			"robotcode.robot.outputDir": "Resultats"
+		}
+	}
 }
