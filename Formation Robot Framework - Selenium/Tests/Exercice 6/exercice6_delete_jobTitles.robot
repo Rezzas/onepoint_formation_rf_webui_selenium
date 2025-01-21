@@ -5,7 +5,7 @@ Library         DataDriver      file=../../Jeux de donnees/data.csv     encoding
 Resource        ../../Ressources/authenticationPage.resource
 Resource        ../../Ressources/homePage.resource
 Resource        ../../Ressources/jobTitlesPage.resource
-Suite Setup     Set Selenium Speed  0.25s
+Test Setup     Set Selenium Speed  0.5s
 Test Teardown   Close Browser
 
 # Test Template permet de jouer un cas de test avec de multiples datasets

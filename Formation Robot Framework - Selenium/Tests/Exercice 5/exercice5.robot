@@ -8,7 +8,7 @@ Variables       ../../Ressources/locators.py
 Library    OperatingSystem
 Library    Collections
 Library    String
-Suite Setup     Set Selenium Speed  0.5s
+Test Setup     Set Selenium Speed  0.5s
 Test Teardown   Close Browser
 
 # Test Template permet de jouer un cas de test avec de multiples datasets

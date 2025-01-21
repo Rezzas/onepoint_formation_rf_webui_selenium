@@ -61,7 +61,7 @@ il renseigne la date d'expiration de permis
     Log To Console    nb_jours: ${random}
 
     ${date}=    Get Current Date   result_format=%Y-%d-%m
-    ${date}=    Add Time to Date    ${date}    ${random} days    result_format=%Y-%d-%m
+    ${date}=    Add Time to Date    ${date}    ${random} days    result_format=%Y-%d-%m    date_format=%Y-%d-%m
     Log To Console    date: ${date}
 
     Press Keys  ${LicenseExpiryDate}      CTRL+a+BACKSPACE

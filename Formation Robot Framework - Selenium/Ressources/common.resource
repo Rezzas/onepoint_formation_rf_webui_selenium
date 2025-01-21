@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation   Sauce Labs Demo
-Library         SeleniumLibrary
+Library         SeleniumLibrary    implicit_wait=0:00:05    timeout=0:00:10
 Library         Collections
 Library         ../Librairies/SauceLabs.py
 
@@ -17,6 +17,9 @@ ${REMOTE_URL} =     http://SAUCE-USER-NAME:SAUCE-KEY@ondemand.eu-central-1.sauce
 # DESIRED_CAPABILITIES
 ${DESIRED_CAPABILITIES}   platform:Windows 11,browserName:chrome,version:latest
 #${DESIRED_CAPABILITIES}   platform:Linux,browserName:chrome,version:108.0
+
+
+${job_name}
 
 *** Keywords ***
 remoteChrome

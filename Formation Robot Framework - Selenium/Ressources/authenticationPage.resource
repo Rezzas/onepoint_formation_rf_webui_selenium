@@ -1,6 +1,5 @@
 *** Settings ***
 Documentation   All the keywords of Authentication page
-Library         SeleniumLibrary
 Resource        common.resource
 Variables       locators.py
 
@@ -17,6 +16,7 @@ un utilisateur se connectant sur la page d'accueil
     ...    options=add_experimental_option("excludeSwitches", ["enable-logging"])
     ...    remote_url=http://chrome:4444
     
+    Maximize Browser Window
     Title Should Be    OrangeHRM
     Input Text    ${UsernameInputBox}    Admin
     Input Text    ${PasswordInputBox}    admin123
