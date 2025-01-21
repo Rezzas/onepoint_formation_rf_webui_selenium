@@ -21,6 +21,3 @@ supprimer ou remplacer le driver ici : C:\Users\s.ramos-izquierdo\AppData\Local\
 
 
 
-Saucelabs 
-	- https://SebRamos:d3848f08-69ef-44ab-8b31-d3f0e67f592e@ondemand.eu-central-1.saucelabs.com:443/wd/hub	
-	robot -v REMOTE_URL:https://SebRamos:d3848f08-69ef-44ab-8b31-d3f0e67f592e@ondemand.eu-central-1.saucelabs.com:443/wd/hub -d Resultats/SauceLabs/Win11Chrome119 -v DESIRED_CAPABILITIES:"name:Windows 11 + Chrome latest, platform:Windows 11,browserName:chrome,version:latest" -i "exercice 7 sauce" Tests
