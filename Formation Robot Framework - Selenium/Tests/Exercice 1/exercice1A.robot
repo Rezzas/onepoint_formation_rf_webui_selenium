@@ -4,7 +4,7 @@ Variables       ../../Ressources/locators.py
 Suite Setup     Set Selenium Speed  1s
 
 *** Variables ***
-${URL}          https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+${URL}          http://orangehrm/web/index.php/auth/login
 ${BROWSER}      Chrome
 
 *** Test Cases ***
@@ -16,10 +16,17 @@ Login Page Accueil
     Open Browser              ${URL}    ${BROWSER}
     ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
     ...                       remote_url=http://chrome:4444
+
+
+    # Log To Console    ${UsernameInputBox}
+
+    # Sleep    10s
+
+
     Maximize Browser Window
     Title Should Be           OrangeHRM
     Input Text                ${UsernameInputBox}                 Admin
-    Input Text                ${PasswordInputBox}                 admin123
+    Input Text                ${PasswordInputBox}                 aLon65tr0ngPassw0rd!
     Click Element             ${LoginButton}
     Element Text Should Be    ${TitleDashboard}                   Dashboard
     Sleep                     2s

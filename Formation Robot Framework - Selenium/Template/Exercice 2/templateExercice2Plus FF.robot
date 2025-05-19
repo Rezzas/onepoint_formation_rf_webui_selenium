@@ -12,6 +12,7 @@ Variables       ../../Ressources/locators.py
 *** Variables ***
 @{MA_LISTE_DES_ATTENDUS}    Admin  PIM  Leave  Time  Recruitment  My Info  Performance  Dashboard  Directory  Maintenance  Claim  Buzz
 @{MA_LISTE_DES_TEXTES_RECUPERES}
+${BROWSER}    Firefox
 
 *** Test Cases ***
 Mon Test Case Exercice 2
@@ -20,9 +21,8 @@ Mon Test Case Exercice 2
 
 *** Keywords ***
 login
-    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   Chrome
-    ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
-    ...                       remote_url=http://chrome:4444
+    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   ${BROWSER}
+    ...                       remote_url=http://firefox:4444
 
     Input Text   ${UsernameInputBox}  Admin
     Input Password     ${PasswordInputBox}  admin123

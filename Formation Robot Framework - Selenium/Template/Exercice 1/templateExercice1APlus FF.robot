@@ -14,7 +14,7 @@ Variables       ../../Ressources/locators.py
 # Exemple :
 ${MA_VARIABLE}      AAAA
 ${URL}              https://aaaa.com
-${BROWSER}          Chrome
+${BROWSER}          Firefox
 
 
 *** Test Cases ***
@@ -31,9 +31,8 @@ Mon Test Case Exercice 1A
     Log To Console    ${UsernameInputBox}
         
     # Keywords utiles :
-    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   Chrome
-    ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
-    ...                       remote_url=http://chrome:4444
+    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   ${BROWSER}
+    ...                       remote_url=http://firefox:4444
 
     Input Text   ${UsernameInputBox}  Admin
     Input Password     ${PasswordInputBox}  admin12

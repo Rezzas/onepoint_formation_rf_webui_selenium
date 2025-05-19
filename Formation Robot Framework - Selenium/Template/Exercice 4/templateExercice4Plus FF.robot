@@ -19,7 +19,7 @@ Variables       ../../Ressources/locators.py
 # Exemple :
 ${MA_VARIABLE}   AAAA
 ${URL}   https://aaaa.com
-${BROWSER}    Chrome
+${BROWSER}    Firefox
 
 *** Test Cases ***
 # Renommer clairement le Test Case, exemple : Verifier Menus Volet Gauche
@@ -60,16 +60,13 @@ Mon Test Case Exercice 4
 
 Un utilisateur qui se connecte à l'application
 
-    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   Chrome
-    ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
-    ...                       remote_url=http://chrome:4444
+    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   ${BROWSER}
+    ...                       remote_url=http://firefox:4444
     Maximize Browser Window
     Input Text   ${UsernameInputBox}  Admin
     Input Password     ${PasswordInputBox}  admin123
     Click Element   ${LoginButton}
     Element Text Should Be    ${TitleDashboard}  Dashboard
-
-
 
 Modifie le champ prénom
     Press Keys  ${EmployeeFirstName}      CTRL+a+BACKSPACE

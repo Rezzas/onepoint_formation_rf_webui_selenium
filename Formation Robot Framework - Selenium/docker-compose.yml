@@ -6,13 +6,23 @@ networks:
     driver: bridge
     
 services:
+  firefox:
+    image: selenium/standalone-firefox:latest
+    container_name: firefox
+    shm_size: 2gb
+    ports:
+      - 4444:4444
+      - 7900:7900
+    networks: 
+      - selenium-net
+      
   chrome:
     image: selenium/standalone-chrome:latest
     container_name: chrome
     shm_size: 2gb
     ports:
-      - 4444:4444
-      - 7900:7900
+      - 4445:4444
+      - 7901:7900
     networks: 
       - selenium-net
 
@@ -23,3 +33,35 @@ services:
     tty: true
     networks: 
       - selenium-net
+      
+  orangehrm:
+    image: orangehrm/orangehrm:latest
+    container_name: orangehrm
+    restart: unless-stopped
+    ports:
+      - "8200:80"
+      - "8443:443"
+    environment:
+      - ORANGEHRM_DATABASE_HOST=mariadb
+      - ORANGEHRM_DATABASE_USER=formation_rf
+      - ORANGEHRM_DATABASE_PASSWORD=aLon65tr0ngPassw0rd!
+      - ORANGEHRM_DATABASE_NAME=orangehrm
+      - PUID=998
+      - PGID=100
+    depends_on:
+      - mariadb
+    links:
+      - mariadb:mariadb    
+    networks: 
+      - selenium-net      
+
+  mariadb:
+    image: mariadb:11.4
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=aLon65tr0ngPassw0rd!
+      - MYSQL_ROOT_USER=root
+      - MYSQL_DATABASE=orangehrm
+    networks: 
+      - selenium-net  

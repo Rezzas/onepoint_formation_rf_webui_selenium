@@ -12,7 +12,7 @@ Force Tags          demo
 *** Test Cases ***
 Test Case 1
     Log To Console    TOTO TITA TOTAALKHLH
-    Run Keyword And Continue On Failure    Log To Console TOTO TITA TOTAALKHLH
+    Run Keyword And Continue On Failure    Log To Console  TOTO TITA TOTAALKHLH
 
 Test Case 2
     Open the google page

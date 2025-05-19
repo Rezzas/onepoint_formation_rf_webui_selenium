@@ -17,7 +17,7 @@ Variables       ../../Ressources/locators.py
 # Exemple :
 ${MA_VARIABLE}   AAAA
 ${URL}   https://aaaa.com
-${BROWSER}    Chrome
+${BROWSER}    Firefox
 
 *** Test Cases ***
 # Renommer clairement le Test Case, exemple : Verifier Menus Volet Gauche
@@ -63,11 +63,6 @@ Mon Test Case Exercice 3
 
     Element Text Should Be   ${SuccessMessage}  Successfully Updated
 
-
-
-
-
-
     # Keywords utiles :
     # ${STRING_1}    ${STRING_2}=    Split String    MA STRING    max_split=1
     # STRING_1 = MA
@@ -92,20 +87,14 @@ Mon Test Case Exercice 3
 # Réutiliser l'exercice 1A pour vous connecter à la page d'accueil
 Login
 
-    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   Chrome
-    ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
-    ...                       remote_url=http://chrome:4444
+    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   ${BROWSER}
+    ...                       remote_url=http://firefox:4444
     Maximize Browser Window
     Input Text   ${UsernameInputBox}  Admin
     Input Password     ${PasswordInputBox}  admin123
     Click Element   ${LoginButton}
     Element Text Should Be    ${TitleDashboard}  Dashboard
 
-    butto
-
-
-
-   
 
  # Astuce : il est possible d'accéder aux méthodes et aux attributs d'un objet directement depuis l'appel de la variable
     # Exemple : la classe WebElement a pour attribut text, il est donc possible de faire ${string.format()}

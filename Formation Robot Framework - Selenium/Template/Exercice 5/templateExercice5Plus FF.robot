@@ -21,7 +21,7 @@ Test Template   Le TEMPLATE
 # Exemple :
 ${MA_VARIABLE}   AAAA
 ${URL}   https://aaaa.com
-${BROWSER}    Chrome
+${BROWSER}    Firefox
 
 
 *** Test Cases ***
@@ -80,9 +80,8 @@ Le TEMPLATE
 
 
 Login
-    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   Chrome
-    ...                       options=add_experimental_option("excludeSwitches", ["enable-logging"])
-    ...                       remote_url=http://chrome:4444
+    Open Browser              https://opensource-demo.orangehrmlive.com/web/index.php/auth/login   Firefox
+    ...                       remote_url=http://firefox:4444
     Maximize Browser Window
     Input Text   ${UsernameInputBox}  Admin
     Input Password     ${PasswordInputBox}  admin123

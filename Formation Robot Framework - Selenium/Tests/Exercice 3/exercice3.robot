@@ -31,6 +31,14 @@ Verifier Modification Utilisateur
     Sleep    2s
     Close Browser
 
+
+    Given Acces Menu
+    And
+    When
+    And
+    Then
+    And
+
 *** Keywords ***
 Login Page Accueil
     Open Browser    ${URL}    ${BROWSER}    

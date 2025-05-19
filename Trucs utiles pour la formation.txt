@@ -21,3 +21,22 @@ supprimer ou remplacer le driver ici : C:\Users\s.ramos-izquierdo\AppData\Local\
 
 
 
+wsl --status
+wsl --update 
+wsl --unregister docker-desktop
+
+chrome --> firefox
+
+docker pull selenium/standalone-firefox
+docker pull selenium/standalone-chrome
+ 
+install mac enlever les required password (custom install)
+
+ajouter le dossier template dans le path Robot de robotcode ou surtout ne définir aucun dossier
+
+
+
+
+
+
+
